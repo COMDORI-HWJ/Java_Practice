@@ -1,4 +1,4 @@
-package com.comdori;
+package lab1;
 
 import java.util.Scanner;
 

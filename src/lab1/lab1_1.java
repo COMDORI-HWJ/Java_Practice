@@ -1,4 +1,4 @@
-package com.comdori;
+package lab1;
 import java.io.*;//아스키코드를 위한 라이브러
 import java.util.Scanner;
 

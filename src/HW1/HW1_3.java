@@ -7,7 +7,7 @@ public class HW1_3 { //간단한 가위바위보 자바 게
     public static void main(String[] args) {
         System.out.println("================");
         System.out.println("학번: 2015\n이름:홍길동");
-        System.out.println("================");임
+        System.out.println("================");
         Scanner kbd = new Scanner(System.in);
         final String s[] = {"가위", "바위", "보"};
         int userChoice, computerChoice;

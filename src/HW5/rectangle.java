@@ -3,8 +3,8 @@ package HW5;
 public class rectangle {
     int width, height, area, circumference;
     rectangle(){
-        width = 1;
-        height = 1;
+        width = 5;
+        height = 5;
     }
     int circumference(){
         circumference=(width+height)*2;
@@ -24,7 +24,7 @@ public class rectangle {
         if(width>0 && width<20)
             this.width = width;
         else
-            System.out.println("가로 길이 범위는 1~19 사이라네요.\n 범위 초과해서 1로 진행됨.");
+            System.out.println("가로 길이 범위는 1~19 사이라네요.\n범위 초과해서 1로 진행됨. \n테스트로 5로 진행");
         return width;}
     int setHeight(int height){
         if(height>0&& height<20)

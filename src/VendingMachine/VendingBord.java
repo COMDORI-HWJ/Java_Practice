@@ -1,20 +1,10 @@
 package VendingMachine;
 
-import java.awt.Color;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.Insets;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.text.NumberFormat;
+import java.awt.*;
+import java.awt.event.*;
+import java.text.*;
 
-import javax.swing.BorderFactory;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
+import javax.swing.*;
 import javax.swing.border.Border;
 
 class VendingBord extends JPanel implements ActionListener
@@ -23,6 +13,7 @@ class VendingBord extends JPanel implements ActionListener
     Machine m = new Machine(); //Machine 클래스를 불러옵니다.
     private JButton  orange,cocopam,coke,soda,coffee,chocomilk, grape;//음료캔 목록
     private JButton ohbakwon,chunwon, refund; //현금 버튼 목록
+    ImageIcon icon1;
 
     public JButton sikhye;
     private JTextField getm; //현재 투입된 금액을 나타내는 텍스트필드
@@ -32,7 +23,7 @@ class VendingBord extends JPanel implements ActionListener
     public GridBagConstraints getPoint(int gridx, int gridy, int gridwidth, int gridheight, int anchor) //버튼 좌표 설정
     {
         GridBagConstraints p = new GridBagConstraints();
-        p.insets = new Insets(2,8,8,8);
+        p.insets = new Insets(20,80,8,35);
         p.ipadx = 0;
         p.ipady = 0;
         p.gridx = gridx;
@@ -47,7 +38,7 @@ class VendingBord extends JPanel implements ActionListener
     {
         JPanel VBord = new JPanel();
         setLayout(new GridBagLayout());
-        Border mainname = BorderFactory.createLineBorder(Color.GREEN); //자판기 테두리를 초록색으로 설정.
+        Border mainname = BorderFactory.createLineBorder(Color.BLUE); //자판기 테두리를 초록색으로 설정.
 
         m.Bev(0, new Beverage("환타-오렌지", m.amount));
         m.Bev(1, new Beverage("코코팜", m.amount));
@@ -61,35 +52,36 @@ class VendingBord extends JPanel implements ActionListener
         VBord.setLayout(new GridBagLayout());
         VBord.setBorder(BorderFactory.createTitledBorder(mainname)); // 양각 효과를 준 자판기 판 테두리에 "음료"라고 덧붙였습니다.
 
-        orange = new JButton(new ImageIcon("img/오렌지.png")); // 오렌지주스라고 써져있는 버튼을 생성합니다.
+        icon1 = new ImageIcon("VendingMachine/img/fanta.png");
+        orange = new JButton(icon1); // 오렌지주스라고 써져있는 버튼을 생성합니다.
         orange.addActionListener(this); // 버튼 클릭 이벤트를 만들어줍니다.
         VBord.add(orange,getPoint(3,0,1,1, GridBagConstraints.EAST)); // Panel위에 음료버튼을 추가하고, 오른쪽으로 정렬 합니다. 이하 동문~
 
-        cocopam = new JButton(new ImageIcon("img/코코팜.png"));
+        cocopam = new JButton(new ImageIcon("VendingMachine/img/2.png"));
         cocopam.addActionListener(this);
         VBord.add(cocopam,getPoint(4,0,1,1, GridBagConstraints.EAST));
 
-        coke = new JButton(new ImageIcon("img/콜라.png"));
+        coke = new JButton(new ImageIcon("VendingMachine/img/콜라.png"));
         coke.addActionListener(this);
         VBord.add(coke,getPoint(3,1,1,1, GridBagConstraints.EAST));
 
-        soda = new JButton(new ImageIcon("img/사이다.png"));
+        soda = new JButton(new ImageIcon("VendingMachine/img/3.png"));
         soda.addActionListener(this);
         VBord.add(soda,getPoint(4,1,2,1, GridBagConstraints.EAST));
 
-        chocomilk = new JButton(new ImageIcon("img/초코우유.png"));
+        chocomilk = new JButton(new ImageIcon("VendingMachine/img/초코우유.png"));
         chocomilk.addActionListener(this);
         VBord.add(chocomilk,getPoint(3,2,1,1, GridBagConstraints.EAST));
 
-        coffee = new JButton(new ImageIcon("img/커피.png"));
+        coffee = new JButton(new ImageIcon("VendingMachine/img/커피.png"));
         coffee.addActionListener(this);
         VBord.add(coffee,getPoint(4,2,1,1, GridBagConstraints.EAST));
 
-        sikhye = new JButton (new ImageIcon("img/식혜.png"));
+        sikhye = new JButton (new ImageIcon("VendingMachine/img/식혜.png"));
         sikhye.addActionListener(this);
         VBord.add(sikhye, getPoint(3, 3, 1, 1, GridBagConstraints.EAST));
 
-        grape = new JButton (new ImageIcon("img/포도.png"));
+        grape = new JButton (new ImageIcon("VendingMachine/img/포도.png"));
         grape.addActionListener(this);
         VBord.add(grape, getPoint(4, 3, 1, 1, GridBagConstraints.EAST));
 
@@ -193,8 +185,6 @@ class VendingBord extends JPanel implements ActionListener
             m.getMoney(7);
             getm.setText(showwon.format(m.money));
         }
-
-
 
         if (source == refund) //눌러진 버튼이 돈반환 버튼이면
         {

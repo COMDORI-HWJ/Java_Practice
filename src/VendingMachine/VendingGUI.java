@@ -10,6 +10,6 @@ public class VendingGUI extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         JPanel panel = new VendingBord();
         this.add(panel);
-        setSize(350,390); // 프로그램 창 크기 설정
+        setSize(500,300); // 프로그램 창 크기 설정
     }
 }
